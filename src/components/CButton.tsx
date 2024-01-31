@@ -3,11 +3,11 @@
 import { CButtonProps } from '@/types';
 import Image from 'next/image'
 
-export const CButton = ({ title, containerStyles, handleClick}: CButtonProps) => {
+export const CButton = ({ title, containerStyles, handleClick, btype}: CButtonProps) => {
   return (
     <button
         disabled={false}
-        type={"button"}
+        type={btype || "button"}
         className={`custom-btn ${containerStyles}`}
         onClick={handleClick}    
     >
