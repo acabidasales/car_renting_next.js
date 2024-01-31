@@ -35,6 +35,8 @@
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
 
+/* central_image_and_text */
+
 .hero {
   @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
 }
@@ -57,4 +59,14 @@
 
 .hero__image-fondo {
   @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
+}
+
+/* footer */
+
+.footer__contents {
+  @apply flex-1 w-full flex md:justify-end flex-wrap max-md:mt-10 gap-20;
+}
+
+.footer__content {
+  @apply flex flex-col gap-6 text-base min-w-[170px];
 }
