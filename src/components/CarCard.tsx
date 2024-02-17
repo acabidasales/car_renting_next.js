@@ -7,11 +7,21 @@ import CustomButton from "./CButton";
 import CarDetails from "./CarDetails";
 
 interface CarCardProps {
-  car: CarProps;
+  car: {
+    id: number;
+    marca: string;
+    modelo: string;
+    caballos: number;
+    año: number;
+    tipo_combustible: string;
+    tipo_transmision: string;
+    precio: number;
+    imagen_link: string;
+  };
 }
 
 const CarCard = ({ car }: CarCardProps) => {
-    const { id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link, fecha_registro } = car;
+    const { id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link } = car;
     const [isOpen, setIsOpen] = useState(false);
 
     return (

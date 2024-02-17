@@ -17,8 +17,7 @@ export interface CarProps {
     caballos: number;
     año: number;
     tipo_combustible: string;
-    tipo_transmision: 'Automático' | 'Manual';
+    tipo_transmision: string;
     precio: number;
     imagen_link: string;
-    fecha_registro: Date;
 }
