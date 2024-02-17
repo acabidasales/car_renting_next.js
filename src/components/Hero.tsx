@@ -22,7 +22,8 @@ const Hero = () => {
                 
                 <CButton
                     title="Ver coches"
-                    containerStyles="bg-[#50d71e] text-white rounded-full mt-10"
+                    containerStyles="bg-[#50d71e] rounded-full mt-10"
+                    textStyles="text-white"
                     handleClick={handleScroll}
                 />
             </div>
