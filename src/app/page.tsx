@@ -5,10 +5,11 @@ import SearchBar from "@/components/Searchbar";
 import { searchCars } from "@/lib/actions";
 import { HomeProps } from "@/types";
 import CarCard from "@/components/CarCard";
+import Pagination from "@/components/Pagination";
 
 export default async function Home({searchParams}: HomeProps) {
   
-  const allCars = await searchCars(searchParams.marca || "", searchParams.modelo || "")
+  const allCars = await searchCars(searchParams.marca || "", searchParams.modelo || "", searchParams.limit || 10)
   
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
@@ -40,6 +41,10 @@ export default async function Home({searchParams}: HomeProps) {
                 </div>
                 ))}
             </div>
+            <Pagination
+              pageNumber={(searchParams.limit || 10) / 10}
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
         </section>
         ) : (
         <div className='home__error-container'>

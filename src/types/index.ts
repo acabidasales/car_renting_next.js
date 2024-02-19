@@ -86,8 +86,14 @@ export interface FilterProps {
     tipo_transmision?: string;
     precio?: number;
     imagen_link?: string;
-  }
+    limit: number
+}
 
 export interface HomeProps {
     searchParams: FilterProps;
-  }
+}
+
+export interface PaginationProps {
+    pageNumber: number;
+    isNext: boolean;
+}
