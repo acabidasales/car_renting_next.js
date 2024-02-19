@@ -1,10 +1,10 @@
 "use client"
-import { CreateButtonProps } from '@/types';
+import { UpdateButtonProps } from '@/types';
 import Image from 'next/image';
-import CreateCar from '../forms/CreateCar';
 import { useState } from 'react';
+import { UpdateCar } from '../forms';
 
-export const CreateButton = ({ isDisabled, containerStyles, textStyles }: CreateButtonProps) => {
+export const UpdateButton = ({ car, isDisabled, containerStyles, textStyles }: UpdateButtonProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
@@ -22,13 +22,13 @@ export const CreateButton = ({ isDisabled, containerStyles, textStyles }: Create
                 className={`custom-btn ${containerStyles}`} 
                 onClick={handleClick}
             >
-                <span className={`flex-1 ${textStyles}`}>
-                    Crea un registro
+                <span className={`${textStyles}`}>
+                    Modificar
                 </span>
             </button>
-            {isOpen && <CreateCar isOpen={isOpen} closeModal={closeModal} />}
+            {isOpen && <UpdateCar car={car} isOpen={isOpen} closeModal={closeModal} />}
         </>
     );
 };
 
-export default CreateButton;
+export default UpdateButton;

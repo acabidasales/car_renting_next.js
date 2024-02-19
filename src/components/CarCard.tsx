@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import CButton from "./buttons/CButton";
 import CarDetails from "./CarDetails";
-import { DeleteButton } from "./buttons";
+import { DeleteButton, UpdateButton } from "./buttons";
 
 interface CarCardProps {
   car: {
@@ -30,11 +30,6 @@ const CarCard = ({ car }: CarCardProps) => {
                 <h2 className="car-card__content-title">
                 {marca} {modelo}
                 </h2>
-                <DeleteButton 
-                    id={car.id}
-                    containerStyles='w-1/8 py-[16px] rounded-full bg-red-500'
-                    textStyles='text-white text-[14px] leading-[17px] font-bold'
-                />
             </div>
 
             <p className='flex mt-6 text-[32px] leading-[38px] font-extrabold'>
@@ -71,6 +66,16 @@ const CarCard = ({ car }: CarCardProps) => {
                     containerStyles='w-full py-[16px] rounded-full bg-[#50d71e] opacity-75'
                     textStyles='text-white text-[14px] leading-[17px] font-bold'
                     handleClick={() => setIsOpen(true)}
+                />
+                <UpdateButton 
+                    car={car}
+                    containerStyles='w-full py-[16px] rounded-full bg-blue-500 opacity-75'
+                    textStyles='text-white text-[14px] leading-[17px] font-bold'
+                />
+                <DeleteButton 
+                    id={car.id}
+                    containerStyles='w-full py-[16px] rounded-full bg-red-500 opacity-75'
+                    textStyles='text-white text-[14px] leading-[17px] font-bold'
                 />
                 </div>
             </div>
