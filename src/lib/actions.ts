@@ -1,5 +1,6 @@
 'use server';
 
+import { CarProps } from '@/types';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 
@@ -54,4 +55,33 @@ export async function deleteCoche(id : number) {
         return { message: 'Database Error: Failed to Delete Car.' };
     }
 
+}
+
+export async function searchMarcas() {
+    const { rows } = await sql`SELECT * FROM marcas`;
+    return rows;
+}
+
+export async function searchCars(marca: string, modelo: string) {
+    console.log(marca);
+    console.log(modelo);
+    
+    
+    if (marca != "" && modelo != ""){
+        const { rows } = await sql<CarProps>`SELECT id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link FROM coches WHERE marca = ${marca} AND modelo = ${modelo}`;
+        console.log(1);
+        return rows
+    }else if (marca != "") {
+        const { rows } = await sql<CarProps>`SELECT id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link FROM coches WHERE marca = ${marca}`;
+        console.log(2);
+        return rows
+    }else if (modelo != "") {
+        const { rows } = await sql<CarProps>`SELECT id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link FROM coches WHERE modelo = ${modelo}`;
+        console.log(3);
+        return rows
+    }else {
+        const { rows } = await sql<CarProps>`SELECT id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link FROM coches`;
+        console.log(4);
+        return rows
+    }
 }

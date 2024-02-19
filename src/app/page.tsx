@@ -1,8 +1,18 @@
 import Image from "next/image";
 import { Hero, Catalog } from "@/components";
 import { CreateButton } from "@/components/buttons";
+import SearchBar from "@/components/Searchbar";
+import { searchCars } from "@/lib/actions";
+import { HomeProps } from "@/types";
+import CarCard from "@/components/CarCard";
 
-export default function Home() {
+export default async function Home({searchParams}: HomeProps) {
+  
+  const allCars = await searchCars(searchParams.marca || "", searchParams.modelo || "")
+  
+
+  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -18,7 +28,24 @@ export default function Home() {
           <p>Explora nuestros coches</p>
           <br></br>
         </div>
-        <Catalog />
+        <div className='home__filters'>
+          <SearchBar />
+        </div><br></br>
+        {!isDataEmpty ? (
+          <section>
+            <div className='home__cars-wrapper'>
+                {allCars?.map((car) => (
+                <div key={car.id}>
+                    <CarCard car={car}/>
+                </div>
+                ))}
+            </div>
+        </section>
+        ) : (
+        <div className='home__error-container'>
+          <h2 className='text-black text-xl font-bold'>Oops, no results</h2><br></br><br></br><br></br>
+        </div>
+      )}
       </div>
     </main>
   );

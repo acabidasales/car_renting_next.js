@@ -71,3 +71,23 @@ export interface UpdateCarProps {
     isOpen: boolean;
     closeModal: () => void;
 }
+
+export interface SearchMarcaProps {
+    marca: string;
+    setMarca: (marca: string) => void;
+}
+
+export interface FilterProps {
+    marca?: string;
+    modelo?: string;
+    caballos?: number;
+    año?: number;
+    tipo_combustible?: string;
+    tipo_transmision?: string;
+    precio?: number;
+    imagen_link?: string;
+  }
+
+export interface HomeProps {
+    searchParams: FilterProps;
+  }
