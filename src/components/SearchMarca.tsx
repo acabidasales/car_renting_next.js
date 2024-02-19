@@ -24,12 +24,11 @@ const SearchMarca = ({ marca, setMarca }: SearchMarcaProps) => {
   }, []);
 
   const filteredMarcas =
-    query === ""
-      ? marcas
-      : marcas.filter((item) =>
-          item
-            .replace(/\s+/g, "")
-        );
+  query === ""
+    ? marcas
+    : marcas.filter((item) =>
+        item.includes(query)
+      );
 
   return (
     <div className='search-marca'>
