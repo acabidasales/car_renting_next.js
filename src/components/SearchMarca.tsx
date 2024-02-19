@@ -67,7 +67,7 @@ const SearchMarca = ({ marca, setMarca }: SearchMarcaProps) => {
                   value={query}
                   className='search-marca__option'
                 >
-                  Create "{query}"
+                  Create {query}
                 </Combobox.Option>
               ) : (
                 filteredMarcas.map((item) => (
