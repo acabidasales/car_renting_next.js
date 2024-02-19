@@ -21,3 +21,10 @@ export interface CarProps {
     precio: number;
     imagen_link: string;
 }
+
+export interface DeleteButtonProps {
+    isDisabled?: boolean;
+    id: number;
+    containerStyles?: string;
+    textStyles?: string;
+}

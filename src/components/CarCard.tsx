@@ -5,6 +5,7 @@ import Image from "next/image";
 import { CarProps } from "@/types";
 import CustomButton from "./CButton";
 import CarDetails from "./CarDetails";
+import { DeleteButton } from ".";
 
 interface CarCardProps {
   car: {
@@ -25,11 +26,16 @@ const CarCard = ({ car }: CarCardProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="car-card group grid grid-cols-2 gap-6">
+        <div className="car-card group grid grid-cols-2 gap-6 mb-4">
             <div className="car-card__content">
                 <h2 className="car-card__content-title">
                 {marca} {modelo}
                 </h2>
+                <DeleteButton 
+                    id={car.id}
+                    containerStyles='w-1/8 py-[16px] rounded-full bg-red-500'
+                    textStyles='text-white text-[14px] leading-[17px] font-bold'
+                />
             </div>
 
             <p className='flex mt-6 text-[32px] leading-[38px] font-extrabold'>

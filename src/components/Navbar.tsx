@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CButton } from '.';
 
 const Navbar = () => {
   return (
@@ -28,6 +27,7 @@ const Navbar = () => {
                 <Link href="/" className="hover:bg-green hover:text-[#42b13e] rounded-md px-3 py-2 text-sm font-medium">
                   <p><b>Login</b></p>
                 </Link>
+                
               </div>
             </div>
           </div>

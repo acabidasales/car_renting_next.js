@@ -6,7 +6,11 @@ import CButton from "./CButton";
 
 const Hero = () => {
     const handleScroll = () => {
+        const nextSection = document.getElementById("catalogo");
 
+        if (nextSection) {
+        nextSection.scrollIntoView({ behavior: "smooth" });
+        }
     }
 
     return (
