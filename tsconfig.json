@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "environment.d.ts.example", ".env.local"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "environment.d.ts.example", ".env.local", "src/api/delete_coche.js"],
   "exclude": ["node_modules"]
 }

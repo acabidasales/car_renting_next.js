@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { CarProps } from "@/types";
-import CustomButton from "./CButton";
+import CButton from "./buttons/CButton";
 import CarDetails from "./CarDetails";
-import { DeleteButton } from ".";
+import { DeleteButton } from "./buttons";
 
 interface CarCardProps {
   car: {
@@ -67,7 +66,7 @@ const CarCard = ({ car }: CarCardProps) => {
             </div>
 
             <div className="car-card__btn-container">
-                <CustomButton
+                <CButton
                     title='Ver más'
                     containerStyles='w-full py-[16px] rounded-full bg-[#50d71e] opacity-75'
                     textStyles='text-white text-[14px] leading-[17px] font-bold'

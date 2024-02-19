@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image"
-import CButton from "./CButton";
+import CButton from "./buttons/CButton";
 
 const Hero = () => {
     const handleScroll = () => {
@@ -26,7 +26,7 @@ const Hero = () => {
                 
                 <CButton
                     title="Ver coches"
-                    containerStyles="bg-[#50d71e] rounded-full mt-10"
+                    containerStyles="bg-[#50d71e] rounded-full mt-10 hover:bg-[#bbf6a0]"
                     textStyles="text-white"
                     handleClick={handleScroll}
                 />

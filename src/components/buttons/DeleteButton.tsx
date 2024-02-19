@@ -1,17 +1,12 @@
 import { DeleteButtonProps } from '@/types';
 import Image from 'next/image';
 import { sql } from '@vercel/postgres';
+import { deleteCoche } from '@/lib/actions';
 
 export const DeleteButton = ({ isDisabled, id, containerStyles, textStyles}: DeleteButtonProps) => {
-    console.log(process.env.NEXT_PUBLIC_PROGRESS_URL);
     const handleClick = async () => {
-        try {
-            await sql`DELETE FROM coches WHERE id = ${id}`;
-
-            console.log('Coche eliminado de forma correcta');
-        } catch (error) {
-            console.error('Error deleting car:', error);
-        }
+        deleteCoche(id)
+        location.reload();
     };
   
     return (

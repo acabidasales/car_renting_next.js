@@ -28,3 +28,13 @@ export interface DeleteButtonProps {
     containerStyles?: string;
     textStyles?: string;
 }
+export interface CreateButtonProps {
+    isDisabled?: boolean;
+    containerStyles?: string;
+    textStyles?: string;
+}
+
+export interface CreateCarProps {
+    isOpen: boolean;
+    closeModal: () => void;
+}

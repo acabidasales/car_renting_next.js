@@ -1,4 +1,3 @@
-// Importa React y los módulos necesarios
 import React from 'react';
 import Image from 'next/image';
 import CarCard from './CarCard';
