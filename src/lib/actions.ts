@@ -33,7 +33,7 @@ export async function createCoche({ marca, modelo, caballos, año, tipo_combusti
         VALUES (${marca}, ${modelo}, ${caballos}, ${año}, ${tipo_combustible}, ${tipo_transmision}, ${precio}, ${imagen_link})`;
         return { message: 'Inserted Car' };
     } catch (error) {
-        return { message: 'Database Error: Failed to Insert Car.' };
+        return { error: 'Database Error: Failed to Insert Car.' };
     }
 }
 
@@ -63,24 +63,17 @@ export async function searchMarcas() {
 }
 
 export async function searchCars(marca: string, modelo: string, limit: number) {
-    console.log(marca);
-    console.log(modelo);
-    
-    
     if (marca != "" && modelo != ""){
         const { rows } = await sql<CarProps>`SELECT id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link FROM coches WHERE marca = ${marca} AND modelo = ${modelo} LIMIT ${limit}`;
         return rows
     }else if (marca != "") {
         const { rows } = await sql<CarProps>`SELECT id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link FROM coches WHERE marca = ${marca} LIMIT ${limit}`;
-        console.log(2);
         return rows
     }else if (modelo != "") {
         const { rows } = await sql<CarProps>`SELECT id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link FROM coches WHERE modelo = ${modelo} LIMIT ${limit}`;
-        console.log(3);
         return rows
     }else {
         const { rows } = await sql<CarProps>`SELECT id, marca, modelo, caballos, año, tipo_combustible, tipo_transmision, precio, imagen_link FROM coches LIMIT ${limit}`;
-        console.log(4);
         return rows
     }
 }
